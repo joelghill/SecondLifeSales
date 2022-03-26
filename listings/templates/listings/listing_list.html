@@ -3,9 +3,14 @@
 {% block page_title %} Listings{% endblock %}
 
 {% block content %}
-<ul class="list-group">
+<div class="list-group">
     {% for listing in listing_list %}
-        <li class="list-group-item">{{ listing.title }} <img src="{{ listing.image.url }}"></li>
+        <a class="list-group-item list-group-item-action" href="{% url 'listing_details' listing.pk %}">
+            <div class="row">
+                <div class="col">{{ listing.title }}</div>
+                <div class="col-auto">${{ listing.price | floatformat:"2g" }}</div>
+            </div>
+        </a>
     {% endfor %}
-</ul>
+</div>
 {% endblock %}
