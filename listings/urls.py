@@ -1,4 +1,5 @@
 from django.urls import path
+
 from listings.views import ListingsListView
 
 urlpatterns = [
