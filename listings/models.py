@@ -23,4 +23,4 @@ class Listing(models.Model):
     image = models.ImageField(default=None)
 
     # Owner
-    owner = models.ForeignKey(Profile, on_delete=models.SET_NULL)
+    owner = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True)
