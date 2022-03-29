@@ -1,6 +1,8 @@
 from email.policy import default
 from django.db import models
 
+from profiles.models import Profile
+
 
 class Listing(models.Model):
 
@@ -19,3 +21,6 @@ class Listing(models.Model):
 
     # Image
     image = models.ImageField(default=None)
+
+    # Owner
+    owner = models.ForeignKey(Profile, on_delete=models.SET_NULL)
