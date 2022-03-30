@@ -24,5 +24,6 @@ from common.views import HomeView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('listings/', include('listings.urls')),
+    path('profile/', include('profiles.urls')),
     path('', HomeView.as_view(), name='home'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
