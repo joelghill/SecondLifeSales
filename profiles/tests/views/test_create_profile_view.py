@@ -51,3 +51,4 @@ class CreateProfileViewTestCase(TestCase):
         self.assertEqual(profile.country, country)
         self.assertEqual(profile.city, city)
         self.assertEqual(profile.province_state, province)
+        self.assertEqual(profile.phone_number, '')
