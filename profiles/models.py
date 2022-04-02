@@ -8,7 +8,7 @@ class Profile(models.Model):
     handle = models.CharField(max_length=120, blank=True)
 
     # Contact Info
-    phone_number = models.IntegerField(blank=True)
+    phone_number = models.CharField(max_length=20, blank=True)
 
     # Location
     country = models.CharField(max_length=120, blank=False)
