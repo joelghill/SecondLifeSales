@@ -1,0 +1,34 @@
+{% extends 'base_template.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/listings_home.css' %}">
+{% endblock %}
+
+{% block page_title %} Home {% endblock %}
+
+{% block content %}
+<div class="row">
+    {% for listing in listings %}
+        <div class="listing-container col-6">
+            <div class="card">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="{{ listing.image.url }}" class="img-fluid rounded-start" alt="Image of {{ listing.title }}">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-header">
+                            {{ listing.title }}
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title">${{ listing.price | floatformat:"2g" }} {% if listing.price_fixed == False %} - OBO{% endif %}</h5>
+                            <p class="card-text">{{ listing.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

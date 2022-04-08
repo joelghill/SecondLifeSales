@@ -20,10 +20,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from common.views import HomeView
+from listings.views import ListingsHomeView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('listings/', include('listings.urls')),
     path('profile/', include('profiles.urls')),
-    path('', HomeView.as_view(), name='home'),
+    path('', ListingsHomeView.as_view(), name='home'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
