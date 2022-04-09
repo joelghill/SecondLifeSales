@@ -4,15 +4,23 @@
 
 {% block content %}
 <div>
-    <span>
-        ${{ listing.price | floatformat:"2g" }}
-    </span>
-    {% if listing.fixed_price == false %}
-        <label class="badge badge-pill badge-primary">OBO</label>
-    {% endif %}
-    <p>{{ listing.details}}</p>
-    {% if listing.image %}
-        <img src="{{ listing.image.url}}">
-    {% endif %}
+    <div class="row">
+        <div class="col-6">
+            {% if listing.image %}
+                <img src="{{ listing.image.url}}">
+            {% endif %}
+        </div>
+        <div class="col-6">
+            <h2>
+                <span>${{ listing.price | floatformat:"2g" }}</span>
+                <span>    
+                    {% if listing.fixed_price == false %}
+                    <label class="badge badge-pill badge-primary">OBO</label>
+                    {% endif %}
+                </span>
+            </h2>
+            <p>{{ listing.description }}</p>
+        </div>
+    </div>
 </div>
 {% endblock %}
