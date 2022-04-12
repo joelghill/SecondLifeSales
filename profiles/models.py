@@ -17,5 +17,10 @@ class Profile(models.Model):
     city = models.CharField(max_length=250, blank=False)
 
     # TODO: Credit card or payment info?
-    
 
+    def __str__(self) -> str:
+        return f"{self.pk}: {self.user.first_name} {self.user.last_name}"
+
+    def public_name(self) -> str:
+        return f"{self.user.first_name} {self.user.last_name[0]}"
+    
